@@ -18,6 +18,14 @@ gem 'uglifier', '>= 1.3.0'
 
 # Inicio de gemas personalizadas
 
+# Autenticacion a los usuarios
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
+gem 'devise-security', '~> 0.15.0'
+
+# Select2
+gem 'select2-rails', '~> 4.0', '>= 4.0.13'
+
 # Gema de estilos
 gem 'bootstrap', '~> 4.5.0'
 
@@ -27,6 +35,11 @@ gem 'font_awesome5_rails'
 # Gema de formularios
 gem 'simple_form'
 
+# Jquery
+gem 'jquery-rails', '~> 4.4'
+
+# mensajes Flash Toastr
+gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 # Fin de gemas personalizadas
 
 # Use CoffeeScript for .coffee assets and views
