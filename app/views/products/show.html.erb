@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @product.nombre %>
+</p>
+
+<p>
+  <strong>Existencia:</strong>
+  <%= @product.existencia %>
+</p>
+
+<p>
+  <strong>P costo:</strong>
+  <%= @product.p_costo %>
+</p>
+
+<p>
+  <strong>P minimo:</strong>
+  <%= @product.p_minimo %>
+</p>
+
+<p>
+  <strong>P venta:</strong>
+  <%= @product.p_venta %>
+</p>
+
+<p>
+  <strong>Total costo:</strong>
+  <%= @product.total_costo %>
+</p>
+
+<p>
+  <strong>V precio venta:</strong>
+  <%= @product.v_precio_venta %>
+</p>
+
+<p>
+  <strong>Gondola:</strong>
+  <%= @product.gondola %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product.user %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

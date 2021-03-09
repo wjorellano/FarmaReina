@@ -40,6 +40,10 @@ gem 'jquery-rails', '~> 4.4'
 
 # mensajes Flash Toastr
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
+
+# URL amigables
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
 # Fin de gemas personalizadas
 
 # Use CoffeeScript for .coffee assets and views

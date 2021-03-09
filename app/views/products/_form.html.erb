@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@product) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :nombre %>
+    <%= f.input :existencia %>
+    <%= f.input :p_costo, label: 'Precio costo' %>
+    <%= f.input :p_minimo, label: 'Precio minimo' %>
+    <%= f.input :p_venta, label: 'Precio de venta' %>
+    <%= f.input :total_costo, label: 'total costo' %>
+    <%= f.input :v_precio_venta, label: 'Valor del precio de venta' %>
+    <%= f.input :gondola %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Crear producto' %>
+  </div>
+<% end %>

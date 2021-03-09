@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_224600) do
+ActiveRecord::Schema.define(version: 2021_03_09_000804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
 
   create_table "old_passwords", force: :cascade do |t|
     t.string "encrypted_password", null: false
@@ -22,6 +33,24 @@ ActiveRecord::Schema.define(version: 2021_03_08_224600) do
     t.string "password_salt"
     t.datetime "created_at"
     t.index ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "nombre"
+    t.integer "existencia"
+    t.decimal "p_costo", precision: 8, scale: 2
+    t.decimal "p_minimo", precision: 8, scale: 2
+    t.decimal "p_venta", precision: 8, scale: 2
+    t.decimal "total_costo", precision: 8, scale: 2
+    t.decimal "v_precio_venta", precision: 8, scale: 2
+    t.integer "iva"
+    t.string "gondola"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +82,5 @@ ActiveRecord::Schema.define(version: 2021_03_08_224600) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "products", "users"
 end
