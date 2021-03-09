@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  resources :sales, path: 'ventas', only: [:index, :new, :create, :update, :destroy]
+
   resources :products, path: 'productos'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

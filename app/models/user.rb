@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :products
 
+  has_many :sales
+
   def to_s
     self.email
   end

@@ -1,0 +1,11 @@
+<%= simple_form_for(@sale) do |f| %> 
+    <div class="form-inputs">
+        <%= f.association :product, prompt:"Seleccionar producto", :label_method => lambda {|product| "#{product.nombre}"} %>
+        <%# f.input :total %>
+        <%= f.input :cantidad %>
+    </div>
+
+    <div class="form-actions">
+        <%= f.button :submit, 'Crear producto' %>
+    </div>
+<% end %>
