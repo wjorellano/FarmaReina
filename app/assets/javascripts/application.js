@@ -46,9 +46,3 @@
 
     // fin dataTable
 
-    // $('#product_user_id').select2({
-    //     width: "100%",
-    //     theme: "bootstrap",
-    //     placeholder: "Selecionar un usuario",
-    //     language: "es"
-    // }); 
