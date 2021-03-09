@@ -22,7 +22,6 @@
 //= require select2_locale_es
 //= require toastr
 
-document.addEventListener("turbolinks:load", () => {
     // dataTable
     $(document).ready(function() {
         $('#product').DataTable( {
@@ -53,4 +52,3 @@ document.addEventListener("turbolinks:load", () => {
     //     placeholder: "Selecionar un usuario",
     //     language: "es"
     // }); 
-});
