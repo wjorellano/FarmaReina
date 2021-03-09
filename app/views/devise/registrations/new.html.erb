@@ -1,29 +1,36 @@
 <div class="container mt-5">
   <div class="row mt-5">
-    <div class="col-md-4 col-sm-12 mx-auto mt-5  rounded">
-      <h1 align="center" class="p-2">Crear cuenta</h1>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="form-inputs p-5">
-          <%= f.input :email, required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} caracteres minimos" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <div class="form-actions">
-            <%= f.button :submit, "Registrate", class:"btn btn-lg btn-success btn-block" %>
+    <div class="col-md-5 col-sm-12 mx-auto mt-5  rounded">
+    <h1 class="text-center">Registrate</h1>
+    <p class="text-center">O <%= link_to "Iniciar sesión" , new_session_path(resource_name) %></p>
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="box">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }, class: "form-control"%>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
           </div>
-          <div class="mt-5">
-            <p align="center" class="card rounded p-3">
-              <%= link_to "Iniciar sesión" , new_session_path(resource_name) %>
-            </p>
+
+          <div class="d-flex justify-content-center">
+            <div class="form-actions">
+              <%= f.button :submit, "Registrate", class: "logbtn" %>
+            </div>
           </div>
+
+          <% end %>
         </div>
-        <% end %>
+      </div>
+    </div>     
+    </div>
     </div>
   </div>
-</div>
