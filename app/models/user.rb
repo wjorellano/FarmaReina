@@ -6,4 +6,9 @@ class User < ApplicationRecord
          :password_archivable, :lockable
 
   has_many :products
+
+  def to_s
+    self.email
+  end
+  
 end
