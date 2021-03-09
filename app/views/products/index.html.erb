@@ -1,35 +1,38 @@
 <h1>Productos</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Existencia</th>
-      <th>P costo</th>
-      <th>P minimo</th>
-      <th>P venta</th>
-      <th>Total costo</th>
-      <th>V precio venta</th>
-      <th>Gondola</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.nombre %></td>
-        <td><%= product.existencia %></td>
-        <td><%= product.p_costo %></td>
-        <td><%= product.p_minimo %></td>
-        <td><%= product.p_venta %></td>
-        <td><%= product.total_costo %></td>
-        <td><%= product.v_precio_venta %></td>
-        <td><%= product.gondola %></td>
-        <td><%# link_to 'Show', product %></td>
-        <td><%= link_to 'Editar', edit_product_path(product) %></td>
-        <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'Nuevo Producto', new_product_path %>
+
+<div class="row">
+  <div class="col-md-11 mx-auto">
+    <div class="card" style="background-color: #f1f2f6;">
+      <div class="card-body">
+        <div class="box">
+          <div class="table-responsive">
+            <div class="d-flex justify-content-center">
+              <%= link_to 'Nuevo Producto', new_product_path, class: "btn btn-primary mb-2" %>
+            </div>
+            <table  id="product" class="table table-bordered table-hover table-">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Existencia</th>
+                  <th>P costo</th>
+                  <th>P minimo</th>
+                  <th>P venta</th>
+                  <th>Total costo</th>
+                  <th>V precio venta</th>
+                  <th>Gondola</th>
+                  <th class="text-warning">Editar</th>
+                  <th class="text-danger">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @products%>
+              </tbody>
+            </table>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

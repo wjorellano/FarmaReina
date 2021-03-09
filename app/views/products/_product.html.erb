@@ -1,0 +1,20 @@
+<tr>
+    <td><%= product.nombre %></td>
+    <td><%= product.existencia %></td>
+    <td><%= product.p_costo %></td>
+    <td><%= product.p_minimo %></td>
+    <td><%= product.p_venta %></td>
+    <td><%= product.total_costo %></td>
+    <td><%= product.v_precio_venta %></td>
+    <td><%= product.gondola %></td>
+    <td>
+        <%= link_to edit_product_path(product), class: "btn btn-warning" do %>
+            <i class="fas fa-edit"></i>
+        <% end %>  
+    </td>
+    <td>
+        <%= link_to product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+            <i class="far fa-trash-alt"></i>
+        <% end %>    
+    </td>
+</tr>
