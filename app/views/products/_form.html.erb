@@ -6,7 +6,7 @@
           <%= simple_form_for(@product) do |f| %>
 
             <div class="form-inputs">
-              <%# f.association :user, label:"usuario" %>
+              <%= f.association :user, label:"usuario" %>
               <%= f.input :nombre %>
               <%= f.input :existencia %>
               <%= f.input :p_costo, label: 'Precio costo' %>

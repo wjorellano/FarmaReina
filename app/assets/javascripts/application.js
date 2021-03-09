@@ -21,7 +21,7 @@
 //= require select2
 //= require select2_locale_es
 //= require toastr
-
+document.addEventListener("turbolinks:load", () => {
     // dataTable
     $(document).ready(function() {
         $('#product').DataTable( {
@@ -46,9 +46,13 @@
 
     // fin dataTable
 
-    // $('#product_user_id').select2({
-    //     width: "100%",
-    //     theme: "bootstrap",
-    //     placeholder: "Selecionar un usuario",
-    //     language: "es"
-    // }); 
+    $(document).ready(function(){
+        $('#product_user_id').select2({
+            width: "100%",
+            theme: "bootstrap",
+            placeholder: "Selecionar un usuario",
+            language: "es"
+        }); 
+    });
+
+});
