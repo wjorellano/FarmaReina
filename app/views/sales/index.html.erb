@@ -1,0 +1,22 @@
+<%= link_to new_sale_path, {remote: true, class: "btn btn-info shadow"}  do %><%= fa_icon "plus-circle" %>Agrear producto<%end%>
+<h3>$ <%= @valor%> </h3>
+<div class="container">
+   <div class="row">
+      <div class="col-md-11">
+         <div>
+            <table class="table table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th>Producto</th>
+                     <th>cantidad</th>
+                     <th>valor</th>
+                     <th></th>
+                  </tr>
+                  <tbody><%= render @sales%></tbody>
+               </thead>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<%= render "modal_sale"%>

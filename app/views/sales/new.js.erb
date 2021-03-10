@@ -1,0 +1,17 @@
+// Add the dialog title
+$('#modal-sale-title').html("Agregar producto");
+
+// Render the new form
+$('.modal-body-sales').html('<%= j render("form") %>');
+
+// Show the dynamic dialog
+$('#modalSales').modal("show");
+
+$(document).ready(function(){
+   $('#sale_product_id').select2({
+      width: "100%",
+      theme: "bootstrap",
+      placeholder: "Selecionar un producto",
+      language: "es"
+   }); 
+});

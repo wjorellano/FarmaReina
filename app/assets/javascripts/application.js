@@ -23,7 +23,7 @@
 //= require toastr
 document.addEventListener("turbolinks:load", () => {
     // dataTable
-    $(document).ready(function() {
+    // $(document).ready(function() {
         $('#product').DataTable( {
             "language": {
                 "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -37,8 +37,8 @@ document.addEventListener("turbolinks:load", () => {
                                 "next" : "Siguiente"
                             }
             }
-        } );
-    });
+        });
+    // });
 
     $(document).ready(function() {
         $('#product').DataTable();
@@ -54,5 +54,9 @@ document.addEventListener("turbolinks:load", () => {
             language: "es"
         }); 
     });
+
+
+
+
 
 });
