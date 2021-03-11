@@ -21,9 +21,16 @@
  @import "bootstrap";
  @import 'font_awesome5_webfont';
 
- a{
+a{
     text-decoration: none !important;
  }
- *{
+*{
    font-size: 13px;
+}
+.footer {
+  clear: both;
+}
+.img-profile{
+  width: 34px;
+  height: 34px;
 }

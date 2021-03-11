@@ -4,9 +4,8 @@
       <div class="card-body">
         <div class="box">
           <%= simple_form_for(@product) do |f| %>
-
             <div class="form-inputs">
-              <%= f.association :user, label:"usuario" %>
+              <%# f.association :user, label:"usuario" %>
               <%= f.input :nombre %>
               <%= f.input :existencia %>
               <%= f.input :p_costo, label: 'Precio costo' %>
@@ -16,7 +15,6 @@
               <%= f.input :v_precio_venta, label: 'Valor del precio de venta' %>
               <%= f.input :gondola %>
             </div>
-
             <div class="form-actions">
               <%= f.button :submit, 'Crear producto' %>
             </div>

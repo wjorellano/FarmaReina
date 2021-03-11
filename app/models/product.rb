@@ -34,7 +34,7 @@ class Product < ApplicationRecord
 
   def to_s
     self.nombre
-    # "#{self.nombre}"  +  " - "  +  "#{self.p_venta}"
+    #{}"#{self.nombre}"  + " "  +  "#{self.p_venta}"
   end
-  
+
 end

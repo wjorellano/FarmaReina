@@ -1,6 +1,7 @@
 <tr>
   <td><%= sale.product.nombre %></td>
   <td align="center"><%= sale.cantidad %></td>
+  <td align="center"><%= sale.product.p_venta %></td>
   <td>$ <%= sale.total %></td>
   <%# link_to edit_sale_path(sale),{remote: true class: "btn btn-warning"} do %><%#<i class="fas fa-edit"></i><%# end %>
   <td><%= link_to sale, method: :delete, data: { confirm: 'Desea remover este producto?' }, class: "btn btn-danger" do %><i class="far fa-trash-alt"></i><% end %></td>

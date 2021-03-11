@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @title = "Productos"
   end
 
   def show
@@ -17,7 +18,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.products.new(product_params)
+    @product = current_user.products.create(product_params)
 
     respond_to do |format|
       if @product.save
@@ -41,7 +42,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Producto eliminado." }
+      format.html { redirect_to products_url, alert: "Producto eliminado." }
     end
   end
 

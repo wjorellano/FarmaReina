@@ -5,6 +5,7 @@ class SalesController < ApplicationController
   def index
     @sales = Sale.all
     @valor = @sales.sum(:total) || 0
+    @title = "Ventas"
   end
 
   def new
@@ -13,7 +14,7 @@ class SalesController < ApplicationController
 
   def edit
   end
-  
+
 
   def create
     @sale = current_user.sales.new(sale_params)
@@ -43,5 +44,5 @@ class SalesController < ApplicationController
   def sale_params
     params.require(:sale).permit(:total, :cantidad, :product_id)
   end
-    
+
 end

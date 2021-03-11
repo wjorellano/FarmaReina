@@ -1,20 +1,12 @@
 <tr>
-    <td><%= product.nombre %></td>
-    <td align="center"><%= product.existencia %></td>
-    <td>$ <%= product.p_costo %></td>
-    <td>$ <%= product.p_minimo %></td>
-    <td>$ <%= product.p_venta %></td>
-    <td>$ <%= product.total_costo %></td>
-    <td>$ <%= product.v_precio_venta %></td>
-    <td align="center"><%= product.gondola %></td>
-    <td>
-        <%= link_to edit_product_path(product), class: "btn btn-warning" do %>
-            <i class="fas fa-edit"></i>
-        <% end %>  
-    </td>
-    <td>
-        <%= link_to product, method: :delete, data: { confirm: 'Desea eliminar este producto?' }, class: "btn btn-danger" do %>
-            <i class="far fa-trash-alt"></i>
-        <% end %>    
-    </td>
+  <td><%= product.nombre %></td>
+  <td align="center"><%= product.existencia %></td>
+  <td>$ <%= product.p_costo %></td>
+  <td>$ <%= product.p_minimo %></td>
+  <td>$ <%= product.p_venta %></td>
+  <td>$ <%= product.total_costo %></td>
+  <td>$ <%= product.v_precio_venta %></td>
+  <td align="center"><%= product.gondola %></td>
+  <td><%= link_to edit_product_path(product), class: "btn btn-warning" do %><i class="fas fa-edit"></i><% end %></td>
+  <td><%= link_to product, method: :delete, data: { confirm: 'Desea eliminar este producto?' }, class: "btn btn-danger" do %><i class="far fa-trash-alt"></i><% end %></td>
 </tr>

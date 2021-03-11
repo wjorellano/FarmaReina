@@ -1,14 +1,21 @@
-<%= link_to new_sale_path, {remote: true, class: "btn btn-info shadow"}  do %><%= fa_icon "plus-circle" %>Agrear producto<%end%>
-<h3>$ <%= @valor%> </h3>
-<div class="container">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3 ml-auto">
+      <div>
+        <h2>Total $ <%= @valor%> </h2>
+      </div>
+    </div>
+  </div>
+  <%= link_to new_sale_path, {remote: true, class: "btn btn-info mb-4 shadow"}  do %><%= fa_icon "plus-circle" %>Agrear producto<%end%>
    <div class="row">
-      <div class="col-md-11">
+      <div class="col-md-12">
          <div>
             <table class="table table-bordered table-hover">
                <thead>
                   <tr>
                      <th>Producto</th>
                      <th>cantidad</th>
+                     <th>valor Unitario</th>
                      <th>valor</th>
                      <th></th>
                   </tr>

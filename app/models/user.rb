@@ -41,11 +41,14 @@ class User < ApplicationRecord
          :password_archivable, :lockable
 
   has_many :products
-
   has_many :sales
 
   def to_s
     self.email
+  end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
   end
   
 end

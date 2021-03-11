@@ -15,6 +15,29 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+    # Mailers
+    config.action_mailer.delivery_method = :sendmail
+    # Defaults to:
+    # config.action_mailer.sendmail_settings = {
+    #   location: '/usr/sbin/sendmail',
+    #   arguments: '-i'
+    # }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    # config.active_job.queue_adapter = :deleyed_job
+
+    config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'example.com',
+      user_name:            Rails.application.credentials.dig(:gmail, :correo),
+      password:             Rails.application.credentials.dig(:gmail, :contraseña),
+      authentication:       :plain,
+      enable_starttls_auto: true }
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?

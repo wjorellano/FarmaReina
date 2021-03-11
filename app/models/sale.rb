@@ -21,11 +21,14 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Sale < ApplicationRecord
+  # Relaciones
   belongs_to :product
   belongs_to :user
 
+  # Validaciones
   validates :cantidad, inclusion: { in: 1..10 }
 
+  # Metodos
   before_save :almacenar
   after_save :descontar
   after_destroy :devolucion
@@ -46,6 +49,6 @@ class Sale < ApplicationRecord
     product.existencia += self.cantidad
     product.save
   end
-  
 
+  
 end

@@ -21,42 +21,13 @@
 //= require select2
 //= require select2_locale_es
 //= require toastr
+
 document.addEventListener("turbolinks:load", () => {
-    // dataTable
-    // $(document).ready(function() {
-        $('#product').DataTable( {
-            "language": {
-                "lengthMenu": "Mostrar _MENU_ registros por página",
-                "zeroRecords": "No se encontraron resultados",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "No hay registros disponibles",
-                "infoFiltered": "(filtrado de _MAX_ registros totales)",
-                            "search" : "Buscar: ",
-                            "paginate" : {
-                                "previous" : "Anterior",
-                                "next" : "Siguiente"
-                            }
-            }
-        });
-    // });
 
-    $(document).ready(function() {
-        $('#product').DataTable();
-    });   
-
-    // fin dataTable
-
-    $(document).ready(function(){
         $('#product_user_id').select2({
             width: "100%",
             theme: "bootstrap",
             placeholder: "Selecionar un usuario",
             language: "es"
-        }); 
-    });
-
-
-
-
-
+        });
 });

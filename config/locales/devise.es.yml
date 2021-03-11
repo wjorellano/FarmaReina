@@ -1,6 +1,7 @@
 es:
   errors:
     messages:
+      taken_in_past: 'la contraseña fue usada previamente, por favor elige otra.'
       expired: "ha expirado, por favor pida uno nuevo"
       not_found: "no encontrado"
       already_confirmed: "ya está confirmada, por favor intente ingresar"

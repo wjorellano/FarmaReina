@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="es-CO">
   <head>
+    <%- if signed_in? %>
+    <title><%= @title %></title>
+    <%else%>
     <title>FarmaReina</title>
+    <%end%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css' %>
+    <%# stylesheet_link_tag 'sb-admin-2.min', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'%>
+    <%= javascript_include_tag 'https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js'%>
     <%- if signed_in? %>
     <style>
       #toast-container {
@@ -16,11 +24,11 @@
     <%end%>
   </head>
   <body>
+    <% if signed_in?%>
+    <%= render "partials/nav"%>
+    <%end%>
     <%= yield %>
     <%= toastr_flash %>
-
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> <!-- Jquery DataTables -->
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script> <!-- DataTables Boostrap js -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"> <!-- DataTables Boostrap css -->
+    <%= render "partials/footer" %>
   </body>
 </html>
