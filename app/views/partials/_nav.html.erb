@@ -5,14 +5,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ml-5">
-      <li class="nav-item active">
-        <%= link_to "Inicio", inicio_path, class:"nav-link"%>
+      <li class="nav-item active p-2">
+        <%= link_to "Inicio", inicio_path, class:"nav-link "%>
       </li>
-      <li class="nav-item active">
-        <%= link_to "Productos", products_path, class:"nav-link"%>
+      <li class="nav-item active p-2">
+        <%= link_to "Productos", products_path, class:"nav-link "%>
       </li>
-      <li class="nav-item active">
-        <%= link_to "Ventas", sales_path, class:"nav-link"%>
+      <li class="nav-item active p-2">
+        <%= link_to "Ventas", sales_path, class:"nav-link "%>
+      </li>
+      <li class="nav-item active p-2">
+        <%= link_to "Inventarios", groups_path, class:"nav-link "%>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -22,7 +25,6 @@
           <%= image_tag("user.png", class:"img-profile rounded-circle")%>
         </a>
         <div class="menu dropdown-menu dropdown-menu-right shadow mr-2 animated--grow-in" aria-labelledby="userDropdown" id="dropdown-menu">
-          <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Perfil</a>
           <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %><%= fa_icon "sign-out-alt", class:"text-gray-400 mr-1" %>Salir<% end %>
         </div>
       </li>

@@ -26,23 +26,16 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Product < ApplicationRecord
-  extend FriendlyId
-  friendly_id :nombre, use: :slugged
+require 'rails_helper'
 
-  belongs_to :user
-  has_many :sales
-  has_many :inventories
+RSpec.describe Product, type: :model do
+  it {should belong_to :user}
+  it {should have_many :inventories}
+  it {should have_many :sales}
 
-  after_save :ganancias
-
-
-  def to_s
-    self.nombre
-  end
-
-  def ganancias
-    self.p_venta = (self.p_costo * self.iva) / 100
-  end
-
+  # it "validar que se cree un producto correctamente." do
+  #   user = FactoryBot.create(:user)
+  #   product = FactoryBot.create(:product)
+  #
+  # end
 end

@@ -23,11 +23,19 @@
 //= require toastr
 
 document.addEventListener("turbolinks:load", () => {
+  $("#product_user_id").select2({
+    width: "100%",
+    theme: "bootstrap",
+    placeholder: "Selecionar usuario",
+    language: "es"
+  });
 
-        $('#product_user_id').select2({
-            width: "100%",
-            theme: "bootstrap",
-            placeholder: "Selecionar un usuario",
-            language: "es"
-        });
+  $(document).ready(function() {
+    $("#inventory_product_id").select2({
+      width: "100%",
+      theme: "bootstrap",
+      placeholder: "Selecionar producto",
+      language: "es"
+    });
+  });
 });

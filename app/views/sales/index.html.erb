@@ -6,7 +6,7 @@
       </div>
     </div>
   </div>
-  <%= link_to new_sale_path, {remote: true, class: "btn btn-info mb-4 shadow"}  do %><%= fa_icon "plus-circle" %>Agrear producto<%end%>
+  <%= link_to new_sale_path, {remote: true, class: "btn btn-primary mb-4 shadow"}  do %>Agrear producto<%end%>
    <div class="row">
       <div class="col-md-12">
          <div>
@@ -14,9 +14,9 @@
                <thead>
                   <tr>
                      <th>Producto</th>
-                     <th>cantidad</th>
-                     <th>valor Unitario</th>
-                     <th>valor</th>
+                     <th>Cantidad</th>
+                     <th>Valor unitario</th>
+                     <th>Valor</th>
                      <th></th>
                   </tr>
                   <tbody><%= render @sales%></tbody>

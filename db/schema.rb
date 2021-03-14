@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_205955) do
+ActiveRecord::Schema.define(version: 2021_03_13_233345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,30 @@ ActiveRecord::Schema.define(version: 2021_03_09_205955) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "nombre"
+    t.decimal "sub_total", default: "0.0"
+    t.decimal "total", default: "0.0"
+    t.bigint "user_id"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_groups_on_slug", unique: true
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.decimal "producto_total"
+    t.decimal "inv_total"
+    t.integer "cantidad"
+    t.bigint "group_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_inventories_on_group_id"
+    t.index ["product_id"], name: "index_inventories_on_product_id"
+  end
+
   create_table "old_passwords", force: :cascade do |t|
     t.string "encrypted_password", null: false
     t.string "password_archivable_type", null: false
@@ -66,6 +90,16 @@ ActiveRecord::Schema.define(version: 2021_03_09_205955) do
     t.string "slug"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "sales", force: :cascade do |t|
@@ -108,6 +142,17 @@ ActiveRecord::Schema.define(version: 2021_03_09_205955) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
+  add_foreign_key "groups", "users"
+  add_foreign_key "inventories", "groups"
+  add_foreign_key "inventories", "products"
   add_foreign_key "products", "users"
   add_foreign_key "sales", "products"
   add_foreign_key "sales", "users"

@@ -19,11 +19,15 @@ class SalesController < ApplicationController
   def create
     @sale = current_user.sales.new(sale_params)
     respond_to do |format|
-      if @sale.save
-        format.html {redirect_to sales_path, notice: "Se agrego un producto"}
-        format.js
+      if @sale.validate_exitencia
+        if @sale.save
+          format.html {redirect_to sales_path, notice: "Se agrego un producto"}
+          format.js
+        else
+          format.html {redirect_to sales_path, alert: "no se pudo agregar"}
+        end
       else
-        format.html {redirect_to sales_path, alert: "no se pudo agregar"}
+        format.html {redirect_to sales_path, alert: "la cantidad supera la existencia del producto"}
       end
     end
   end

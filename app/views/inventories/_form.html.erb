@@ -1,0 +1,14 @@
+<%= simple_form_for [@group, @inventory] do |f| %>
+	<div class="row ml-1">
+		<div class="col-md-7">
+			<%= f.association :product,
+												label: "producto" %>
+		</div>
+		<div class="col">
+			<%= f.input :cantidad%>
+		</div>
+		<div class="col mt-4">
+			<%= f.submit "agregar", class:"btn btn-success btn-inventory"%>
+		</div>
+	</div>
+<%end%>

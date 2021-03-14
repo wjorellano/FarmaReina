@@ -23,6 +23,12 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 gem 'devise-security', '~> 0.15.0'
 
+# Roles
+gem "rolify"
+
+# Permisos
+gem "pundit"
+
 # Select2
 gem 'select2-rails', '~> 4.0', '>= 4.0.13'
 

@@ -26,23 +26,27 @@ class Sale < ApplicationRecord
   belongs_to :user
 
   # Validaciones
-  validates :cantidad, inclusion: { in: 1..10 }
+  validates :cantidad, inclusion: { in: 1..50 }
 
   # Metodos
-  before_save :almacenar
+  before_save :validate_exitencia
   after_save :descontar
+  before_save :almacenar
   after_destroy :devolucion
 
-
-  def almacenar
-    self.total = self.cantidad * product.p_venta
+  def validate_exitencia
+     product.existencia >= self.cantidad
   end
 
   def descontar
-    if self.cantidad < product.existencia
+    if self.cantidad <= product.existencia
        product.existencia -= self.cantidad
        product.save
     end
+  end
+
+  def almacenar
+    self.total = self.cantidad * product.p_venta
   end
 
   def devolucion
@@ -50,5 +54,4 @@ class Sale < ApplicationRecord
     product.save
   end
 
-  
 end

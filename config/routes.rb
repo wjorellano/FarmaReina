@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   resources :sales, path: 'ventas'
 
   resources :products, path: 'productos'
+
+  resources :groups, path: 'grupos' do
+    resources :inventories, path: 'inventarios'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

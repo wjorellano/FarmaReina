@@ -26,23 +26,12 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Product < ApplicationRecord
-  extend FriendlyId
-  friendly_id :nombre, use: :slugged
-
-  belongs_to :user
-  has_many :sales
-  has_many :inventories
-
-  after_save :ganancias
-
-
-  def to_s
-    self.nombre
+FactoryBot.define do
+  factory :product do
+    nombre {"diclofenaco"}
+    existencia {10}
+    p_venta {200.0}
+    v_precio_venta {2000.0}
+    association :user, factory: :user
   end
-
-  def ganancias
-    self.p_venta = (self.p_costo * self.iva) / 100
-  end
-
 end

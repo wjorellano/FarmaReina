@@ -33,24 +33,9 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
-class User < ApplicationRecord
-  rolify
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :password_archivable, :lockable
-
-  has_many :products
-  has_many :sales
-  has_many :groups
-
-  def to_s
-    self.email
+FactoryBot.define do
+  factory :user do
+    password { "12345678" }
+    sequence(:email){|n| "dummy_#{n}@factory.com" }
   end
-
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
-
 end

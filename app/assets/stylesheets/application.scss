@@ -18,8 +18,8 @@
 @import "select2";
 @import "select2-bootstrap";
 
- @import "bootstrap";
- @import 'font_awesome5_webfont';
+@import "bootstrap";
+@import 'font_awesome5_webfont';
 
 a{
     text-decoration: none !important;
@@ -33,4 +33,7 @@ a{
 .img-profile{
   width: 34px;
   height: 34px;
+}
+.btn-inventory{
+  margin-top: 6px;
 }

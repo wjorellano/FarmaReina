@@ -1,0 +1,20 @@
+<div class="container mt-5">
+	<h2>Inventario por Grupos</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to new_group_path, {remote: true, class:"btn btn-primary mb-3"} do %>Nuevo grupo<%end%>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Inv total</th>
+						<th>Inventario</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody><%= render @groups%></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<%= render "modal_group"%>

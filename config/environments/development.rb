@@ -8,7 +8,7 @@ Rails.application.configure do
 
   # Mailers
    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-   
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -33,8 +33,8 @@ Rails.application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'example.com',
-      user_name:            Rails.application.credentials.dig(:gmail, :correo),
-      password:             Rails.application.credentials.dig(:gmail, :contraseña),
+      user_name:            Rails.application.credentials.dig(:gmail, :email),
+      password:             Rails.application.credentials.dig(:gmail, :password),
       authentication:       :plain,
       enable_starttls_auto: true }
 
