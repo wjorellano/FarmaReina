@@ -1,21 +1,30 @@
 <div class="container mt-5">
   <div class="row mt-5">
     <div class="col-md-4 mx-auto mt-5  rounded">
-      <h3 align="center" class="mt-2">Olvidastes tu contraseña?</h3>
-      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <div class="form-inputs p-5">
-          <%= f.input :email, required: true,
-                       autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <div class="form-actions">
-            <%= f.button :submit, "Enviar instrucciones", class:"btn btn-lg btn-success btn-block" %>
-          </div>
-          <div class="row mt-4">
-            <div class="col"><p align="center"><%= link_to "Iniciar sesión" , new_session_path(resource_name) %></p></div>
-            <div class="col"><p align="center"><%= link_to "Crear cuenta" , new_registration_path(resource_name) %></p></div>
+      <h3 align="center" class="mt-2">¿Olvidastes tú contraseña?</h3>
+      <p class="text-center">O <%= link_to "Iniciar sesión" , new_session_path(resource_name) %></p>
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <div class="box">
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <div class="form-inputs p-5">
+              <%= f.input :email, required: true,
+                           autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+              <div class="d-flex justify-content-center">
+                <div class="form-actions">
+                  <%= f.button :submit, "Enviar instrucciones", class:"logbtn" %>
+                </div>
+              </div>
+              <!-- <div class="row mt-4">
+                <div class="col"><p align="center"><%= link_to "Iniciar sesión" , new_session_path(resource_name) %></p></div>
+                <div class="col"><p align="center"><%= link_to "Crear cuenta" , new_registration_path(resource_name) %></p></div>
+              </div> -->
+            </div>
+            <% end %>
           </div>
         </div>
-        <% end %>
+      </div>
     </div>
   </div>
 </div>
