@@ -7,7 +7,16 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<%= link_to new_group_path, {remote: true, class:"btn btn-primary mb-3"} do %>Nuevo grupo<%end%>
+			<div class="row mt-2">
+				<div class="col-md-2">
+					<%= link_to new_group_path, {remote: true, class:"btn btn-primary mb-3"} do %>Nuevo grupo<%end%>
+				</div>
+				<div class="col-md-2">
+					<%= link_to groups_path(format: 'xlsx'), class: "btn btn-success" do %>
+						Generar Excel
+				  	<% end %>
+				</div>
+			</div>
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>

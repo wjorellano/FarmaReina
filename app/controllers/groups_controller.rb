@@ -5,13 +5,26 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @title = "Grupos de inventarios"
     @sub_total = Inventory.sum(:producto_total) || 0
+    @inventario = Inventory.all
+    respond_html_and_csv
+  end
+
+  def respond_html_and_csv
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers['Content-Disposition'] = 'attachment; filename="inventario.xlsx"'
+      end
+    end
   end
 
   def new
+    authorize @group
     @group = Group.new
   end
 
   def edit
+    authorize @group
   end
 
   def create
