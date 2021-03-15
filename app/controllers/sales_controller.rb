@@ -33,6 +33,7 @@ class SalesController < ApplicationController
   end
 
   def destroy
+    authorize @sale
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: "producto removido" }
