@@ -12,9 +12,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def edit
+    authorize @product
   end
 
   def create

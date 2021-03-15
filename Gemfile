@@ -52,6 +52,10 @@ gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 # Procesos en 2do plano
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.5'
+
+# Gema de excel
+gem 'caxlsx_rails', '~> 0.6.2'
+
 # Fin de gemas personalizadas
 
 # Use CoffeeScript for .coffee assets and views

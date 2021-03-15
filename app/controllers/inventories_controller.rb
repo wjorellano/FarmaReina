@@ -14,6 +14,7 @@ class InventoriesController < ApplicationController
   # end
 
   def edit
+    authorize @inventory
   end
 
   def create
