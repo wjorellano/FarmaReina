@@ -25,12 +25,13 @@ class Inventory < ApplicationRecord
   belongs_to :product
   belongs_to :group
 
+  validates :cantidad, numericality: true
   before_save :calcular_valor_producto
   #before_save :total_inventario
-  #before_save :sub_total
 
   def calcular_valor_producto
     self.producto_total = self.cantidad * product.p_venta
   end
+
 
 end

@@ -8,6 +8,7 @@ class InventoriesController < ApplicationController
     @title = "Grupo de #{@group.nombre}"
     @inventory = @group.inventories.build
     @total = @inventories.sum(:producto_total) || 0
+    @product = current_user.products.new
   end
 
   # def new

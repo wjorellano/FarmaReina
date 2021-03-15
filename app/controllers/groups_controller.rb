@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
     @title = "Grupos de inventarios"
+    @sub_total = Inventory.sum(:producto_total) || 0
   end
 
   def new
@@ -22,6 +23,13 @@ class GroupsController < ApplicationController
       else
         format.html {redirect_to groups_path, alert: "Error al crear el grupo"}
       end
+    end
+  end
+
+  def destroy
+    @group.destroy
+    respond_to do |format|
+      format.html { redirect_to groups_path, notice: "Grupo eliminado"}
     end
   end
 

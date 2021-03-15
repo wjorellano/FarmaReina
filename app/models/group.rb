@@ -23,6 +23,9 @@
 class Group < ApplicationRecord
   extend FriendlyId
   friendly_id :nombre, use: :slugged
+
+  validates :nombre, uniqueness: true
+
   belongs_to :user
   has_many :inventories, dependent: :destroy
 

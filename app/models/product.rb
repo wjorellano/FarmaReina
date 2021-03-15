@@ -30,19 +30,21 @@ class Product < ApplicationRecord
   extend FriendlyId
   friendly_id :nombre, use: :slugged
 
+  validates :nombre, uniqueness: true, presence: true
+
   belongs_to :user
   has_many :sales
   has_many :inventories
 
-  after_save :ganancias
+  # after_save :ganancias
 
 
   def to_s
     self.nombre
   end
 
-  def ganancias
-    self.p_venta = (self.p_costo * self.iva) / 100
-  end
+  # def ganancias
+  #   self.p_venta = (self.p_costo * self.iva) / 100
+  # end
 
 end
