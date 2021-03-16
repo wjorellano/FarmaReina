@@ -17,5 +17,6 @@ module FarmaReina
     # the framework and any gems in your application.
     config.i18n.default_locale = :es
     config.active_job.queue_adapter = :delayed_job
+    config.assets.initialize_on_precompile = false
   end
 end
