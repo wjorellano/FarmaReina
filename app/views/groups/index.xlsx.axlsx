@@ -1,7 +1,14 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Inventario") do |sheet|
-sheet.add_row ['Producto nombre', 'Cantidad', 'Total']
-@inventario.each do |inventario|
-    sheet.add_row [inventario.product.nombre, inventario.cantidad, inventario.producto_total]
-  end
+wb.styles do |s|
+    header_cell = s.add_style bg_color: "EFEFEF",
+        fg_color: "00",
+        sz: 14,
+        alignment: { horizontal: :center }
+    wb.add_worksheet(name: "inventario") do |sheet|
+        sheet.add_row ['Productos', 'Cantidad', 'producto total', 'total:', @sub_total],
+            :style => [header_cell, header_cell, header_cell, header_cell]
+        @inventario.each do |inventario|
+          sheet.add_row [inventario.product.nombre, inventario.cantidad, inventario.producto_total]
+        end
+    end
 end

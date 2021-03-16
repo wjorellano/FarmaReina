@@ -5,6 +5,7 @@
 	</div>
 	<div class="row mt-5">
 		<%= render "form"%>
+		<%= link_to new_product_path,{remote: true, class: "btn btn-primary mb-4 shadow"}  do %>Agrear producto<%end%>
 		<div class="col-md-12">
 			<div class="table-responsive">
 				<table class="table table-bordered table-hover">

@@ -4,13 +4,16 @@
     <%- if signed_in? %>
     <title><%= @title %></title>
     <%else%>
-    <title>FarmaReina</title>
+    <title>Farmareinak</title>
     <%end%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta charset="utf-8"/>
+    <meta name="keywords" content="FarmaReinak, faramareina, medicamentos">
     <meta name="description" content="Sistema de registro e inventario"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property=”og:site_name” content="Farmareinak"/>
+    <meta property="og:url" content="https://faramareina.herokuapp.com" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
